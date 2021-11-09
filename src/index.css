@@ -1,13 +1,219 @@
+html {
+  background-color: rgb(109, 109, 109);
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
+  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Layout */
+
+#root {
+  margin-top: 20px;
+}
+
+#calculator {
+  display: grid;  
+  margin: 0 auto;
+  padding: 10px;
+ 
+  max-width: 400px; 
+  min-width: 100vm;
+  grid-template-columns: [first-col] 60% [second] auto;
+  grid-template-rows: [history-nav] auto [display] auto [keys] auto;
+
+}
+
+#history-nav {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  margin-bottom: 10px;
+ 
+}
+
+#display {
+  width: 100%;
+  overflow-x: clip;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  margin-bottom: 20px;
+}
+
+#display code {
+  display: block;
+  float: right;
+  height: 1.5em;
+}
+
+#number-pad {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row: 3;
+  grid-row-end: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+
+
+#number-pad .btn-wrapper {
+  flex-basis: 28%;
+}
+
+#operation-pad {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#operation-pad .btn-wrapper {
+  flex-basis: 44%;
+}
+ #operation-pad .btn-wrapper:last-child  {
+  flex-basis: 92%; 
+}
+
+.btn-wrapper button {
+  display: block;
+  width: 100%;
+  min-height: 1.4em;
+}
+
+/* Colour */
+
+
+
+#calculator {
+  border-radius: 20px;
+  border: 1px solid white;
+  background-color: rgb(75, 76, 78);
+  background-image: linear-gradient(to bottom right, rgb(200, 200, 200), rgb(200, 200, 200), rgb(100, 100, 100), rgb(200, 185, 185));
+  box-shadow: black 2px 2px 10px;
+}
+
+#display {    
+  border: rgb(241, 241, 241) 2px inset;  
+  background-color: rgb(20, 168, 136);
+  background-image: linear-gradient(to bottom right,rgb(64, 151, 129), rgb(56, 163, 145), rgb(60, 168, 150));
+}
+
+#history-nav button {
+  background-color: rgb(214, 201, 9);
+  border-radius: 5px;
+  border: 1px solid rgb(112, 131, 96);
+  box-shadow: rgb(104, 103, 103) 0 2px 1px;
+}
+
+#history-nav button:active {
+  box-shadow: none;
+  font-size: 0.95em;
+}
+
+.btn-wrapper button {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: rgb(58, 58, 58) 0px 3px 2px;
+  
+}
+
+.btn-wrapper button:active {
+  box-shadow: none;
+  border-width: 1px;
+}
+
+#number-pad .btn-wrapper button {
+  background-image: radial-gradient(farthest-corner at 10px 10px, rgb(12, 12, 12) 0%, rgb(63, 63, 63) 100%);
+  border-color: black;
+}
+
+#operation-pad .btn-wrapper button {
+  background-image: radial-gradient(farthest-corner at 10px 10px, rgb(188, 193, 194) 0%, rgb(255, 255, 255) 100%);
+  border-color:rgb(200, 200, 200)
+}
+
+#number-pad .control button {
+  background-image: radial-gradient(farthest-corner at 10px 10px, rgb(211, 107, 38) 0%, rgb(236, 127, 38) 100%);
+  border-color:rgb(182, 89, 46);
+}
+
+#operation-pad #equals {
+  background-image: radial-gradient(farthest-corner at 10px 10px, rgb(28, 61, 105) 0%, rgb(10, 83, 179) 100%);
+  border-color: rgb(18, 71, 121);
+}
+
+
+
+/* Typography */
+
+#display code {
+  color: black;
+  font-size: 1.5em; 
+}
+
+#history-nav button {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(70, 40, 23);
+}
+
+.btn-wrapper button {
+  font-size: 1.2em;
+  font-weight: bold;
+  
+}
+
+.btn-wrapper button:active {
+  font-size: 1.1em;
+}
+
+#number-pad .btn-wrapper button {
+  color: rgb(228, 228, 228);
+}
+
+#operation-pad .btn-wrapper button {
+  color: rgb(39, 39, 39);
+}
+
+#number-pad .control button {
+
+  color: black;
+}
+
+#operation-pad #equals {
+  color: rgb(228, 228, 228);
+}
+
+
+
+
+
